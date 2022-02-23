@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Homework</title>
+  </head>
+  <body>
+    <!--
+Обязательное задание.
+
+Необходимо попросить пользователя ввести два числа в переменные `a` и `b`.
+Необходимо вывести в консоль один результат из следующих проверок:
+1. Если оба числа в переменных `a` и `b` положительные, вывести разность
+чисел `a` и `b`, а именно, вычесть из переменной `a` значение переменной `b`.
+2. Если оба числа в переменных `a` и `b` отрицательные, вывести произведение
+чисел `a` и `b`.
+3. Если числа в переменных `a` и `b` разных знаков, вывести сумму чисел
+`a` и `b`.
+В остальных случаях программа не должна ничего выводить.
+-->
+    <script>
+      "use strict";
+
+      let a = 0;
+      let b = 0;
+
+      const sayAlert = () => {
+        alert("Вы ввели не числовое значение!");
+      };
+
+      const getValueVariableA = () => {
+        a = +prompt("Введите числовое значение переменной `a`");
+        if (a && Number.isInteger(a)) {
+          return a;
+        } else {
+          sayAlert();
+          getValueVariableA();
+        }
+      };
+
+      const getValueVariableB = () => {
+        b = +prompt("Введите числовое значение переменной `b`");
+        if (a && Number.isInteger(b)) {
+          return b;
+        } else {
+          sayAlert();
+          getValueVariableB();
+        }
+      };
+
+      const processNumbersArithmetically = (a, b) => {
+        if (a > 0 && b > 0) {
+          console.log(a - b);
+        } else if (a < 0 && b < 0) {
+          console.log(a * b);
+        } else if ((a > 0 && b < 0) || (a < 0 && b > 0)) {
+          console.log(a + b);
+        }
+      };
+
+      getValueVariableA();
+      getValueVariableB();
+      processNumbersArithmetically(a, b);
+    </script>
+  </body>
+</html>
